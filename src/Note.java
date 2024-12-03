@@ -4,26 +4,17 @@
  * @author Tyler Hua
  */
 public class Note {
-    /**
-     * The current stream
-     */
+    /** The current stream */
     private String stream;
 
-    /**
-     * The keybindings
-     */
+    /** The keybindings */
     private String d1, d2, k1, k2;
 
-    /**
-     * The length of the stream
-     */
+    /** The length of the stream */
     private int length;
 
-    /**
-     * The number of lives
-     */
+    /** The number of lives */
     private int lives;
-
 
     /**
      * Instantiates a Note object with default values.
