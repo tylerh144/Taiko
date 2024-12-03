@@ -1,9 +1,33 @@
+/**
+ * This class represents a note pattern
+ *
+ * @author Tyler Hua
+ */
 public class Note {
+    /**
+     * The current stream
+     */
     private String stream;
-    private String d1, d2, k1, k2;
-    private int length, lives;
 
-    //default constructor
+    /**
+     * The keybindings
+     */
+    private String d1, d2, k1, k2;
+
+    /**
+     * The length of the stream
+     */
+    private int length;
+
+    /**
+     * The number of lives
+     */
+    private int lives;
+
+
+    /**
+     * Instantiates a Note object with default values.
+     */
     public Note() {
         stream = "";
         d1 = ",";
@@ -13,7 +37,13 @@ public class Note {
         length = 5;
         setLives("hard");
     }
-    //constructor with length input
+
+    /**
+     * Instantiates a Note object with an inputted length and mode.
+     *
+     * @param len Length of the stream
+     * @param mode Mode of the simulation
+     */
     public Note(int len, String mode) {
         stream = "";
         d1 = ",";
@@ -24,6 +54,14 @@ public class Note {
         setLives(mode);
     }
 
+    /**
+     * Sets new keybindings.
+     *
+     * @param d1 New d1
+     * @param d2 New d2
+     * @param k1 New k1
+     * @param k2 New k2
+     */
     public void setKeys(String d1, String d2, String k1, String k2) {
         this.d1 = d1;
         this.d2 = d2;
@@ -32,10 +70,20 @@ public class Note {
         System.out.println("New keys (ddkk): " + d1 + " " + d2 + " " + k1 + " " + k2);
     }
 
+    /**
+     * Sets the length to a new value.
+     *
+     * @param newLength The new length
+     */
     public void setLength(int newLength) {
         length = newLength;
     }
 
+    /**
+     * Sets the lives based on the mode.
+     *
+     * @param mode The mode of the simulation
+     */
     public void setLives(String mode) {
         if (mode.equals("easy")) {
             lives = 3;
@@ -44,11 +92,18 @@ public class Note {
         }
     }
 
-    //dynamic live setter
+    /**
+     * Sets the lives to a new value.
+     *
+     * @param lives The new amount of lives
+     */
     public void setLives(int lives) {
         this.lives = lives;
     }
 
+    /**
+     * Creates a new pattern in stream
+     */
     public void newStream() {
         stream = "";
         for (int i = 0; i < length; i++) {
@@ -56,6 +111,11 @@ public class Note {
         }
     }
 
+    /**
+     * Returns the stream converted into red and blue circles.
+     *
+     * @return The stream converted into red and blue circles
+     */
     public String display() {
         String display = stream;
         display = display.replace("0", "\uD83D\uDD34");
@@ -63,6 +123,12 @@ public class Note {
         return display;
     }
 
+    /**
+     *  Checks if the converted userStream is equal to stream and if there are any lives remaining.
+     *
+     * @param userStream The stream inputted during the simulation
+     * @return True if userStream is equal to stream or lives is greater than one, false otherwise
+     */
     public boolean check(String userStream) {
         userStream = userStream.replace(d1, "0");
         userStream = userStream.replace(d2, "0");
