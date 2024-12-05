@@ -100,6 +100,8 @@ public class Note {
         for (int i = 0; i < length; i++) {
             stream += (int) (Math.random() * 2);
         }
+        stream = stream.replace("0", "<");
+        stream = stream.replace("1", ">");
     }
 
     /**
@@ -109,8 +111,8 @@ public class Note {
      */
     public String display() {
         String display = stream;
-        display = display.replace("0", "\uD83D\uDD34");
-        display = display.replace("1", "\uD83D\uDD35");
+        display = display.replace("<", "\uD83D\uDD34");
+        display = display.replace(">", "\uD83D\uDD35");
         return display;
     }
 
@@ -121,10 +123,10 @@ public class Note {
      * @return True if userStream is equal to stream or lives is greater than one, false otherwise
      */
     public boolean check(String userStream) {
-        userStream = userStream.replace(d1, "0");
-        userStream = userStream.replace(d2, "0");
-        userStream = userStream.replace(k1, "1");
-        userStream = userStream.replace(k2, "1");
+        userStream = userStream.replace(d1, "<");
+        userStream = userStream.replace(d2, "<");
+        userStream = userStream.replace(k1, ">");
+        userStream = userStream.replace(k2, ">");
         boolean correct = userStream.equals(stream);
         if (!correct && lives > 1) {
             lives--;

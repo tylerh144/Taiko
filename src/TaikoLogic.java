@@ -132,7 +132,7 @@ public class TaikoLogic {
     }
 
     private void changeKeys() {
-            System.out.println("\nEnter new keybindings below (cannot be 0 or 1):");
+            System.out.println("\nEnter new keybindings below:");
             System.out.print("d1: ");
             String d1 = scan.nextLine();
             System.out.print("d2: ");
